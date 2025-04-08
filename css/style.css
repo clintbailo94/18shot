@@ -1,0 +1,622 @@
+/* Base Styles */
+:root {
+    /* Retro Color Palette */
+    --primary-color: #4a3f35; /* Muted Brown */
+    --secondary-color: #7e7368; /* Lighter Muted Brown */
+    --accent-color: #d9a05b; /* Muted Gold/Orange */
+    --bg-color: #f5f1e8; /* Creamy Off-White */
+    --text-color: #4a3f35; /* Muted Brown for text */
+    --light-gray: #e8e2d5; /* Lighter Cream */
+    --border-color: #d1c8b9; /* Softer Border */
+    --highlight-color: #7c9c97; /* Muted Teal/Green */
+    --film-grain: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.08'/%3E%3C/svg%3E"); /* Adjusted grain */
+}
+
+html {
+    scroll-behavior: smooth; /* Ensure smooth scroll is globally applied */
+}
+
+body {
+    font-family: 'Georgia', serif; /* Keep serif for body, adjust color via variable */
+    line-height: 1.7;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Typography */
+h1, h2, h3 {
+    font-family: 'Courier New', Courier, monospace; /* Retro mono font for headings */
+    font-weight: normal; /* Normal weight for mono */
+    letter-spacing: 0px;
+    color: var(--primary-color);
+    text-transform: uppercase; /* Uppercase headings for retro feel */
+}
+
+h1 {
+    font-size: 3rem; /* Adjust size */
+    margin-bottom: 1rem;
+    font-weight: normal; /* Normal weight for mono */
+}
+
+h2 {
+    font-size: 2rem; /* Adjust size */
+    margin-bottom: 2rem;
+    text-align: center;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 1rem;
+}
+
+h3 {
+    font-size: 1.3rem; /* Adjust size */
+    margin-bottom: 0.75rem;
+    font-weight: normal; /* Normal weight for mono */
+    text-transform: none; /* Keep subheadings normal case */
+}
+
+p {
+    margin-bottom: 1.5rem;
+    max-width: 650px;
+    color: var(--secondary-color); /* Use secondary brown for paragraphs */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Ensure specific paragraphs intended for centering are centered */
+.design-content p, .waitlist p {
+    text-align: center;
+}
+
+/* Layout */
+section {
+    padding: 5rem 2rem; /* Increased padding */
+    max-width: 1100px; /* Slightly narrower max-width */
+    margin: 0 auto;
+    border-bottom: 1px solid var(--light-gray); /* Subtle separation between sections */
+}
+
+section:last-of-type {
+    border-bottom: none; /* No border on the last section */
+}
+
+/* Hero Section */
+.hero {
+    text-align: center;
+    padding: 8rem 2rem;
+    background-color: var(--primary-color); /* Use primary brown for hero */
+    color: var(--bg-color); /* Cream text on brown */
+    position: relative;
+    background-image: var(--film-grain);
+    background-blend-mode: overlay;
+    border-bottom: none; /* Remove border from hero */
+}
+
+.hero h1 {
+    color: var(--accent-color); /* Use accent color for hero H1 for contrast */
+}
+
+.hero-content {
+    max-width: 1000px; /* Widen max-width for side-by-side */
+    margin: 0 auto;
+    display: flex; /* Enable flexbox */
+    align-items: center; /* Vertically align items */
+    justify-content: space-between; /* Space out text and image */
+    gap: 2rem; /* Add gap between text and image */
+    text-align: left; /* Align text to the left */
+}
+
+.hero-text-content {
+    flex: 1.5; /* Give more space to text */
+}
+
+.hero-text-content h1,
+.hero-text-content p,
+.hero-text-content button {
+    text-align: left; /* Ensure text elements are left-aligned */
+    margin-left: 0; /* Remove auto margins */
+    margin-right: 0;
+}
+
+.hero-image {
+    flex: 1; /* Give less space to image */
+    display: block;
+    max-width: 350px; /* Set a max-width for the image */
+    width: 100%; /* Allow shrinking */
+    height: auto;
+    margin: 0; /* Remove previous margins */
+    border-radius: 4px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive adjustments for Hero */
+@media (max-width: 768px) {
+    .hero-content {
+        flex-direction: column; /* Stack text and image */
+        text-align: center; /* Center align when stacked */
+    }
+     .hero-text-content h1,
+    .hero-text-content p,
+    .hero-text-content button {
+        text-align: center; /* Center text elements when stacked */
+    }
+    .hero-image {
+        margin-top: 2rem; /* Add space above image when stacked */
+        max-width: 70%; /* Adjust size for stacked view */
+    }
+}
+
+
+.tagline {
+    font-size: 1.6rem; /* Slightly larger */
+    margin-bottom: 2.5rem; /* More space */
+    opacity: 0.85;
+    font-family: 'Georgia', serif; /* Serif for tagline */
+    font-style: italic; /* Italicize */
+}
+
+/* Features Section */
+/* Features Section */
+.features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Slightly smaller min width */
+    gap: 2.5rem; /* Increased gap */
+    text-align: center;
+    padding: 4rem 0; /* Keep vertical padding */
+}
+
+.feature {
+    background: #fff; /* Ensure white background */
+    padding: 2.5rem; /* More padding */
+    border-radius: 4px; /* Sharper radius */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.03); /* Subtler shadow */
+    border: 1px solid var(--border-color); /* Add subtle border */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature:hover {
+    transform: translateY(-3px); /* Less lift */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.06); /* Subtler hover shadow */
+}
+
+.feature-icon {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+/* Buttons */
+/* Buttons */
+.cta-button {
+    background-color: var(--accent-color); /* Use accent gold/orange */
+    color: var(--primary-color); /* Brown text */
+    border: 1px solid var(--accent-color);
+    padding: 0.8rem 2.2rem;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-weight: bold; /* Bolder button text */
+    border-radius: 3px;
+    font-family: 'Courier New', Courier, monospace; /* Match heading font */
+}
+
+.cta-button:hover {
+    background-color: var(--highlight-color); /* Hover to teal */
+    border-color: var(--highlight-color);
+    color: var(--bg-color); /* Cream text on hover */
+}
+
+/* Form Styles */
+.waitlist-form {
+    display: flex;
+    gap: 1rem;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+/* Form Styles */
+.waitlist {
+    background-color: var(--light-gray); /* Section background */
+}
+
+.waitlist h2 {
+    border-bottom: none; /* Remove border for this section title */
+}
+
+.waitlist-form input {
+    flex: 1;
+    padding: 0.8rem 1rem; /* Adjusted padding */
+    border: 1px solid var(--border-color);
+    border-radius: 3px;
+    font-family: 'Georgia', serif;
+    font-size: 1rem;
+    background-color: #fff; /* Ensure input background is distinct */
+    color: var(--primary-color);
+}
+
+.waitlist-form input:focus {
+    outline: none;
+    border-color: var(--accent-color); /* Accent color border on focus */
+    box-shadow: 0 0 0 2px rgba(217, 160, 91, 0.3); /* Accent color shadow */
+}
+
+/* Footer */
+/* Footer */
+footer {
+    text-align: center;
+    padding: 3rem 1rem; /* More padding */
+    background-color: #fff; /* White background */
+    border-top: 1px solid var(--border-color); /* Top border */
+    color: var(--secondary-color);
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin: 1rem 0;
+}
+
+.footer-links a {
+    color: var(--secondary-color);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-family: 'Courier New', Courier, monospace; /* Mono font for links */
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}
+
+.crafted {
+    font-size: 0.8rem; /* Smaller */
+    opacity: 0.8;
+    margin-top: 1.5rem; /* More space above */
+    font-style: italic;
+}
+
+
+/* Animation Base Styles */
+.hidden {
+    opacity: 0;
+    transform: translateY(30px); /* Start slightly lower */
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Specific animation adjustments if needed */
+section > h2.hidden {
+    transform: translateY(40px); /* Headings slide up a bit more */
+}
+
+
+/* Design Section Specifics */
+.design h2 { /* Style the main heading */
+    text-align: center; /* Center the main section heading */
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 1rem;
+    margin-bottom: 3rem; /* Increased bottom margin */
+}
+
+.design-intro { /* Style the introductory paragraph */
+    text-align: center;
+    margin-bottom: 3rem;
+    max-width: 750px; /* Adjust width if needed */
+}
+
+.design-split { /* Container for the two parts */
+    display: flex;
+    flex-direction: column;
+    gap: 4rem; /* Space between front and back sections */
+}
+
+.design-part { /* Container for one part (e.g., front view) */
+    display: flex;
+    gap: 1.5rem; /* Reduced gap */
+    align-items: center;
+}
+
+/* The default flex direction (row) combined with the HTML source order
+   (text then image for .design-back) achieves the desired layout */
+.design-back {
+    /* No flex-direction override needed here */
+}
+
+.design-part-image {
+    flex: 0.7; /* Give less space to the image */
+    text-align: center; /* Center image within its container */
+}
+
+.design-part-image img {
+    max-width: 100%; /* Ensure image scales */
+    height: auto;
+    border-radius: 4px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--border-color);
+}
+
+.design-part-content {
+    flex: 1.3; /* Give more space to the content */
+    text-align: left;
+}
+
+.design-part-content h3 { /* Style the sub-headings (Front/Back Details) */
+    text-align: left;
+    border-bottom: none;
+    padding-bottom: 0;
+    margin-bottom: 1rem;
+    text-transform: uppercase; /* Keep consistent with other H3s if desired */
+}
+
+.design-features { /* Keep existing list styles */
+    list-style: none;
+    padding-left: 0;
+}
+
+.design-features li {
+    margin-bottom: 0.75rem;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.design-features li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--primary-color);
+}
+
+/* Design Section Specifics */
+.design-features li::before {
+    content: '>'; /* Use '>' for a retro feel */
+    position: absolute;
+    left: 0;
+    color: var(--accent-color); /* Accent color for checkmark */
+}
+
+/* How It Works Section Specifics */
+.how-it-works .steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Slightly larger min width */
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+/* Ensure 3 columns on wider screens */
+@media (min-width: 768px) {
+    .how-it-works .steps {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+
+.step {
+    text-align: center;
+    border: 1px solid var(--border-color);
+    padding: 1.5rem;
+    border-radius: 4px;
+    background-color: #fff;
+}
+
+.step-icon {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    color: white;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    font-family: 'Courier New', Courier, monospace; /* Mono font for step numbers */
+}
+
+.closing-line {
+    text-align: center;
+    margin-top: 3rem;
+    font-size: 1.2rem;
+    font-style: italic;
+    color: var(--primary-color);
+    max-width: none; /* Allow full width centering */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    h1 { font-size: 2.5rem; }
+    h2 { font-size: 1.8rem; }
+    .hero { padding: 6rem 1rem; }
+    .tagline { font-size: 1.3rem; }
+    section { padding: 3rem 1rem; }
+    .design { grid-template-columns: 1fr; } /* Stack design section */
+    .waitlist-form { flex-direction: column; }
+    .waitlist-form button { width: 100%; }
+}
+
+/* Gallery Section */
+.gallery {
+    background-color: #fff; /* White background for contrast */
+}
+
+.gallery h2 {
+    margin-bottom: 3rem; /* More space below heading */
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive grid */
+    gap: 1.5rem; /* Gap between items */
+}
+
+.gallery-item {
+    border-radius: 4px;
+    overflow: hidden; /* Ensure images stay within bounds */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    aspect-ratio: 1 / 1; /* Make items square */
+    position: relative; /* For positioning content inside */
+}
+
+.gallery-item:hover {
+    transform: scale(1.03); /* Slight zoom on hover */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+}
+
+.gallery-item img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Cover the area, cropping if needed */
+}
+
+/* Camera Placeholder Specific Styles */
+.camera-placeholder {
+    background-color: var(--light-gray);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px dashed var(--border-color); /* Dashed border */
+    box-shadow: none; /* Remove shadow from placeholders */
+}
+
+.camera-placeholder:hover {
+    transform: none; /* No zoom on placeholder hover */
+    box-shadow: none;
+    border-color: var(--secondary-color); /* Darken border on hover */
+}
+
+.placeholder-content {
+    color: var(--secondary-color);
+    font-family: 'Courier New', Courier, monospace; /* Mono font */
+    font-size: 1rem;
+    font-weight: bold; /* Bolder placeholder text */
+    color: var(--secondary-color);
+}
+
+/* Adjust gallery grid for smaller screens */
+@media (max-width: 576px) {
+    .gallery-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Smaller min size */
+        gap: 1rem;
+    }
+}
+
+/* Design Section Images */
+.design-images {
+    display: flex; /* Use flexbox to arrange images */
+    gap: 1.5rem; /* Space between images */
+    justify-content: center; /* Center images if space allows */
+    align-items: center; /* Align images vertically */
+}
+
+.design-images img {
+    max-width: 45%; /* Limit image width to fit side-by-side */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 4px; /* Match other rounded corners */
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    border: 1px solid var(--border-color); /* Subtle border */
+}
+
+/* Responsive adjustments for Design Section */
+@media (max-width: 768px) {
+    .design-part, .design-back {
+        flex-direction: column; /* Stack image and text vertically */
+    }
+
+    .design-part-image {
+        margin-bottom: 1.5rem; /* Add space below image when stacked */
+    }
+
+     .design-part-content {
+        text-align: center; /* Center text when stacked */
+    }
+
+    .design-part-content h3 {
+        text-align: center; /* Center sub-heading when stacked */
+    }
+
+    .design-features {
+        padding-left: 0; /* Remove padding for centered list */
+        display: inline-block; /* Allow centering */
+        text-align: left; /* Keep list items left-aligned */
+    }
+}
+
+/* Lightbox Styles */
+.lightbox {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1000; /* Sit on top */
+    padding-top: 60px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0, 0, 0, 0.9); /* Black w/ opacity */
+}
+
+.lightbox-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    animation-name: lightboxZoom;
+    animation-duration: 0.6s;
+}
+
+@keyframes lightboxZoom {
+    from {transform: scale(0)}
+    to {transform: scale(1)}
+}
+
+#lightbox-caption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0;
+    height: 150px;
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.lightbox-close:hover,
+.lightbox-close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Add cursor pointer to gallery images */
+.gallery-item img {
+    cursor: pointer;
+    transition: 0.3s; /* Add transition for hover effect */
+}
+
+.gallery-item img:hover {
+    opacity: 0.7; /* Slight dim on hover */
+}
+
+/* Responsive adjustments for lightbox */
+@media (max-width: 700px) {
+    .lightbox-content {
+        width: 95%;
+    }
+}
