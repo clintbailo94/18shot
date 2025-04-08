@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The 18shot - A Digital Camera That Makes Every Shot Count</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/png" href="css/media/images/logo.png">
 </head>
 <body>
     <!-- Hero Section -->
@@ -70,7 +71,7 @@
                     </ul>
                 </div>
                 <div class="design-part-image">
-                    <img src="css/media/images/back.jpg" alt="18Shot Camera - Back View">
+                    <img src="css/media/images/back.jpg" alt="18shot Camera - Back View">
                 </div>
             </div>
         </div>
@@ -101,7 +102,8 @@
 
     <!-- Gallery Section -->
     <section class="gallery">
-        <h2>Gallery & Product Shots</h2>
+        <h2>Gallery</h2>
+        <p class="gallery-description">Inspired by the timeless aesthetic of 35mm film, these shots embrace natural grains and beautiful imperfections. Each 18shot camera features a unique, hand-crafted lens, giving every photo its own distinct identity.</p>
         <div class="gallery-grid">
             <!-- New Images -->
             <div class="gallery-item">
@@ -135,14 +137,15 @@
     <section class="waitlist" id="waitlist-section">
         <h2>Join the Waitlist</h2>
         <p>Don't miss your chance to own a modern classic.</p>
-        <form class="waitlist-form">
-            <input type="email" placeholder="Your email address">
+        <form class="waitlist-form" action="https://formspree.io/f/mdkeprew" method="POST">
+            <input type="email" name="email" placeholder="Your email address" required>
             <button type="submit" class="cta-button">Notify Me</button>
         </form>
     </section>
 
     <!-- Footer -->
     <footer>
+        <img src="css/media/images/logo.png" alt="18shot Logo" class="footer-logo">
         <p>© 2025 The 18shot</p>
         <div class="footer-links">
             <a href="#">Instagram</a>

@@ -8,23 +8,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Waitlist form handling
-const waitlistForm = document.querySelector('.waitlist-form');
-if (waitlistForm) {
-    waitlistForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        const email = this.querySelector('input[type="email"]').value;
-        
-        // Simple validation
-        if (email && email.includes('@')) {
-            alert('Thank you for joining the waitlist! We\'ll notify you when The 18Shot is available.');
-            this.reset();
-        } else {
-            alert('Please enter a valid email address.');
-        }
-    });
-}
-
 // Add film grain effect to hero section
 function addFilmGrain() {
     const hero = document.querySelector('.hero');
